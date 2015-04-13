@@ -6,7 +6,7 @@ Common Test refresh plugin, registered as event handler in `rebar.config`. Make 
 
 {deps, [
     {ct_refresh, ".*", {git, "https://github.com/konrads/ct_refresh.git", {branch, "master"}}}
-   ]}.
+]}.
 ```
 
 Upon test run finish (triggered on second write of "**/all_runs.html"):
