@@ -1,0 +1,3 @@
+-define(format(S, P), lists:flatten(io_lib:format(S, P))).
+-define(log(Str), io:format(standard_error, "~nCT_RELINK: "++Str++"~n", [])).
+-define(log(Str, Params), io:format(standard_error, "~nCT_RELINK: "++Str++"~n", Params)).

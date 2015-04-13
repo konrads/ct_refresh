@@ -1,0 +1,4 @@
+{application, ct_refresh, [
+    {description, "relink CT report directories, refresh them in debug chrome"},
+    {vsn, "0.7.0"}
+]}.
