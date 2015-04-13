@@ -1,8 +1,12 @@
 ##ct_refresh
 
-Common Test refresh plugin, registered as event handler:
+Common Test refresh plugin, registered as event handler in `rebar.config`. Make sure it's on the path, eg. as a dependency:
 ```
 {ct_extra_params, "-event_handler ct_refresh_events"}.
+
+{deps, [
+    {ct_refresh, ".*", {git, "https://github.com/konrads/ct_refresh.git", {branch, "master"}}}
+   ]}.
 ```
 
 Upon test run finish (triggered on second write of "**/all_runs.html"):
