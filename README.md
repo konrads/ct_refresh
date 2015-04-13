@@ -2,7 +2,7 @@
 
 Common Test refresh plugin, registered as event handler:
 ```
-{ct_extra_params, "-event_handler_init ct_refresh_events"}.
+{ct_extra_params, "-event_handler ct_refresh_events"}.
 ```
 
 Upon test run finish (triggered on second write of "**/all_runs.html"):

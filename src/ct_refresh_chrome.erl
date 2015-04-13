@@ -35,7 +35,7 @@ new(Exec, DebugPort) ->
                 _ -> "chrome"
             end
     end,
-    ?log("Starting required apps: ~p", ?REQUIRED_APPS),
+    ?log("Starting required apps: ~p", [?REQUIRED_APPS]),
     [ ok = application:ensure_started(App) || App <- ?REQUIRED_APPS ],
     #ct_refresh_chrome_state{client_pid=self(), exec=Exec2, debug_port=DebugPort}.
 
