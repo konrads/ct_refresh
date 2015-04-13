@@ -10,15 +10,15 @@
 %% API
 ct_refresh(LogDir) ->
     % programatically define params, so that CI can easily avoid browser interactions
-    ChromeStart = case os:getenv("CT_RELINK_CHROME_START") of
+    ChromeStart = case os:getenv("CT_REFRESH_CHROME_START") of
         "true" -> true;
         _ -> false
     end,
-    ChromeDebugPort = case os:getenv("CT_RELINK_CHROME_PORT") of
+    ChromeDebugPort = case os:getenv("CT_REFRESH_CHROME_PORT") of
         false -> ?DEFAULT_CHROME_PORT;
         PortStr -> list_to_integer(PortStr) 
     end,
-    ChromeExec = os:getenv("CT_RELINK_CHROME_EXEC"),
+    ChromeExec = os:getenv("CT_REFRESH_CHROME_EXEC"),
     
     IndexFile = LogDir ++ "/index.html",
     LatestIndexFile = LogDir ++ "/latest_index.html",
