@@ -26,5 +26,5 @@ By default, browser interaction is switched off to avoid messing with CI. For br
 
 
 #### Snags:
-* Unsure about where this should be plugged in.  Tried ct hooks, ct halt functions, rebar plugins, but none of these would guarantee being run regardless of failure/success.
-* As an event_handler, the access to stdout is limited, hence all output goes to `raw.log`
+* This plugin is hooked in as a event_handler, triggering on second write of `all_runs.html`. Would prefer a more obvious/suitable hook, but I failed to find a better alternative. Tried ct hooks, ct halt functions, rebar plugins, but none of these guarantee trigger at the end of the test, regardless whether they passed/failed.
+* As an event_handler, the access to stdout is limited, hence all output goes to `raw.log`.
