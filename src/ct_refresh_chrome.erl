@@ -38,7 +38,7 @@ start_chrome(#ct_refresh_chrome_state{exec=Exec, debug_port=DebugPort}, Uri) ->
     Cmd = ?format("~s --remote-debugging-port=~b --user-data-dir=remote-profile ~s", [Exec, DebugPort, Uri]),
     spawn(fun() -> os:cmd(Cmd) end),
     % await chrome startup
-    timer:sleep(5000).
+    timer:sleep(3000).
 
 get_tabs(#ct_refresh_chrome_state{debug_port=DebugPort}) ->
     Url = ?format("http://localhost:~b/json/list", [DebugPort]),
