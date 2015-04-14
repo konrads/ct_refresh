@@ -8,6 +8,7 @@ CommonTest plugin that a) links up latest test reports with `latest_*` links, b)
 CT_REFRESH_CHROME_START=true rebar -C demo_rebar.config ct
 ```
 
+
 #### Installation/configuration:
 Add to your rebar.config:
 ```
