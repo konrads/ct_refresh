@@ -28,12 +28,7 @@
 new(Exec, DebugPort) ->
     Exec2 = case Exec of
         L when is_list(L) -> Exec;
-        _ ->
-            % invalid, guess from uname -s
-            case os:cmd("uname -s") of
-                "Darwin\n" -> "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome";
-                _ -> "chrome"
-            end
+        _ -> default_chrome_exec()
     end,
     ?log("Starting required apps: ~p", [?REQUIRED_APPS]),
     [ ok = application:ensure_started(App) || App <- ?REQUIRED_APPS ],
@@ -85,3 +80,9 @@ ondisconnect(_, State) -> {ok, State}.
 websocket_handle(_Msg, _Req, State) -> {ok, State}.
 websocket_info(_Info, _Reg, State) -> {ok, State}.
 websocket_terminate(_, _Req, _State) -> ok.
+
+%% internals
+default_chrome_exec() -> default_chrome_exec(os:cmd("uname -s")).
+default_chrome_exec("Darwin\n") -> "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome";
+default_chrome_exec("Linux\n") -> "google-chrome";
+default_chrome_exec(_) -> "chrome".
